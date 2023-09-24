@@ -16,11 +16,22 @@ def random_predict(number: int = 1) -> int:
     """
     count = 0
 
+    # Зададим правую и левую границу диапазона угадываемых чисел
+    left_border=0
+    right_border=100
+    predict_number =np.random.randint(0,101)
     while True:
-        count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
-        if number == predict_number:
-            break  # выход из цикла если угадали
+        # Угадываемым числом будет середина заданного диапазона
+         count+=1
+         if predict_number>number:
+             right_border=predict_number
+             predict_number = (left_border + right_border) // 2
+         elif predict_number<number: 
+             left_border=predict_number
+             predict_number = (left_border + right_border) // 2
+         else:
+             break # Число отгадано       
+
     return count
 
 
