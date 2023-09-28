@@ -24,10 +24,10 @@ def random_predict(number: int = 1) -> int:
         # Угадываемым числом будет середина заданного диапазона
          count+=1
          if predict_number>number:
-             right_border=predict_number
+             right_border=predict_number-1
              predict_number = (left_border + right_border) // 2
          elif predict_number<number: 
-             left_border=predict_number
+             left_border=predict_number+1
              predict_number = (left_border + right_border) // 2
          else:
              break # Число отгадано       
